@@ -55,17 +55,19 @@ export default {
   props: {},
   methods: {
     addTask() {
+      // function to add a task using push method to add what is being typed in the inputField as tasks
       if (this.inputField !== "") {
         this.toDos.push(this.inputField);
         this.inputField = "";
       }
     },
-
     removeTask() {
+      // function to delete a task using splice method
       this.toDos.splice(0, 1);
     },
-    saveTodo() {
-      localStorage.setItem("data", this.toDos);
+    saveTask() {
+      // converting the todos to a string and saving the todos in localstorage
+      localStorage.setItem("data", JSON.stringify(this.toDos));
     },
   },
 };
