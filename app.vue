@@ -2,7 +2,7 @@
   <div
     class="flex flex-col relative h-screen w-full py-[60px] bg-gray-200 items-center"
   >
-    <h1 class="mb-[20px] text-5xl font-bold">TO-DO LIST</h1>
+    <h1 class="mb-[20px] text-5xl font-bold font-serif">TO-DO LIST</h1>
     <div class="flex flex-row relative">
       <div>
         <input
@@ -59,6 +59,7 @@ export default {
       if (this.inputField !== "") {
         this.toDos.push(this.inputField);
         this.inputField = "";
+       
       }
     },
     removeTask() {
