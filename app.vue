@@ -45,7 +45,11 @@
 <script>
 export default {
   name: "Test",
-  created() {},
+  created() {
+    if (window) {
+      this.getTask();
+    }
+  },
   data() {
     return {
       inputField: "",
@@ -59,7 +63,6 @@ export default {
       if (this.inputField !== "") {
         this.toDos.push(this.inputField);
         this.inputField = "";
-       
       }
     },
     removeTask() {
@@ -69,6 +72,9 @@ export default {
     saveTask() {
       // converting the todos to a string and saving the todos in localstorage
       localStorage.setItem("data", JSON.stringify(this.toDos));
+    },
+    getTask() {
+      this.toDos = JSON.parse(window.localStorage.getItem("data"));
     },
   },
 };
